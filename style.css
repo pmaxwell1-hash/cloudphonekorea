@@ -1,0 +1,731 @@
+/* ============================================
+   원격 클라우드폰 — 싸이월드 감성 1000%
+   굴림체 / 핑크-하늘색 / 800px 고정
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "굴림", "굴림체", Gulim, "돋움", Dotum, sans-serif;
+  font-size: 12px;
+  background-color: #aaccff;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,200,230,0.4) 1px, transparent 1px);
+  background-size: 20px 20px, 40px 40px;
+  background-position: 0 0, 10px 10px;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* 반짝이 별 레이어 */
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#wrap {
+  width: 800px;
+  margin: 10px auto 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ 상단 타이틀 바 ============ */
+#top-bar {
+  background: linear-gradient(90deg, #ff66aa, #cc44bb, #9933cc, #cc44bb, #ff66aa);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0 8px;
+  border: 2px solid #cc44bb;
+  border-bottom: none;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 0 #880066, 0 0 8px rgba(255,150,220,0.8);
+  line-height: 1.6;
+}
+
+.top-deco {
+  color: #ffe04b;
+  font-size: 13px;
+  text-shadow: 0 0 6px #ffcc00;
+  animation: twinkle 1s infinite alternate;
+}
+
+/* ============ 네비 바 ============ */
+#nav-bar {
+  background: linear-gradient(90deg, #6699ff, #4477ee, #6699ff);
+  border: 2px solid #4477ee;
+  border-bottom: none;
+  padding: 5px 12px;
+  text-align: center;
+  font-size: 11px;
+}
+
+#nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #224499;
+}
+
+#nav-bar a:hover {
+  color: #ffe04b;
+  text-decoration: underline;
+}
+
+/* ============ 메인 테이블 ============ */
+#main-table {
+  width: 100%;
+  border: 2px solid #9988cc;
+  border-collapse: collapse;
+  background: #f4f0ff;
+}
+
+/* ============ 사이드바 ============ */
+#sidebar {
+  width: 170px;
+  vertical-align: top;
+  padding: 8px;
+  background: linear-gradient(180deg, #eeddf8, #e0d0ff);
+  border-right: 2px solid #bb99dd;
+}
+
+.side-box {
+  border: 1px solid #cc99dd;
+  background: #fff;
+  box-shadow: 1px 1px 0 #ddbbee;
+}
+
+.side-title {
+  background: linear-gradient(90deg, #cc66aa, #aa44cc);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 7px;
+  text-shadow: 1px 1px 0 #882266;
+  letter-spacing: 1px;
+}
+
+.side-content {
+  padding: 6px 8px;
+  font-size: 11px;
+  text-align: center;
+  color: #555;
+}
+
+.profile-avatar {
+  width: 54px;
+  height: 54px;
+  border: 2px solid #ffaadd;
+  border-radius: 50%;
+  margin: 4px auto;
+  background: linear-gradient(135deg, #ffe0f0, #e0d8ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(255,100,200,0.4);
+}
+
+.profile-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #9933cc;
+  margin: 4px 0 2px;
+}
+
+.profile-sub {
+  font-size: 10px;
+  color: #aa66bb;
+  margin-bottom: 4px;
+}
+
+.side-hr {
+  border: none;
+  border-top: 1px dashed #ddaaee;
+  margin: 5px 0;
+}
+
+.mini-info {
+  font-size: 10px;
+  color: #aa66bb;
+  text-align: left;
+  font-weight: bold;
+}
+
+.mini-val {
+  font-size: 11px;
+  font-weight: bold;
+  color: #663388;
+  text-align: left;
+  word-break: break-all;
+}
+
+.side-link {
+  text-align: left;
+  padding: 2px 0;
+}
+
+.side-link a {
+  color: #9933cc;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.side-link a:hover {
+  text-decoration: underline;
+  color: #ff66aa;
+}
+
+/* 운영 상태 */
+.status-online {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #009933;
+}
+
+.dot-green {
+  width: 8px;
+  height: 8px;
+  background: #00cc44;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 5px #00ff55;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 3px #00ff55; }
+  50% { box-shadow: 0 0 10px #00ff55, 0 0 4px #00cc44; }
+}
+
+/* ============ 메인 콘텐츠 ============ */
+#content {
+  vertical-align: top;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+/* 메인 배너 */
+#main-banner {
+  background: linear-gradient(135deg, #ffe0f5, #e8d8ff, #d8eeff, #ffe0f5);
+  border: 2px solid #ffaadd;
+  padding: 14px 16px;
+  text-align: center;
+  margin-bottom: 10px;
+  box-shadow: inset 0 0 20px rgba(255,150,220,0.15);
+}
+
+.banner-emoji {
+  font-size: 28px;
+  margin-bottom: 4px;
+  animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-4px); }
+}
+
+.banner-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #cc3388;
+  text-shadow: 1px 1px 0 #ffaacc, 0 0 8px rgba(255,100,180,0.5);
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.banner-sub {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5544cc;
+  margin-bottom: 8px;
+}
+
+.banner-marquee {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #ffccee;
+  padding: 3px 0;
+  font-size: 10px;
+  color: #cc3366;
+  font-weight: bold;
+}
+
+/* 공지 박스 */
+.notice-box {
+  background: linear-gradient(135deg, #fffbe0, #fff0f5);
+  border: 1px solid #ffcc44;
+  border-left: 4px solid #ff6600;
+  padding: 8px 12px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.notice-box strong { color: #cc3300; font-size: 12px; }
+.notice-icon { color: #ff6600; font-size: 13px; }
+
+/* 콘텐츠 박스 */
+.content-box {
+  border: 1px solid #cc99dd;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 0 #eebbff;
+}
+
+.content-title {
+  background: linear-gradient(90deg, #cc44aa, #aa33cc, #cc44aa);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-shadow: 1px 1px 0 #880066;
+  letter-spacing: 1px;
+}
+
+/* ============ 요금제 테이블 ============ */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.product-thead th {
+  background: linear-gradient(90deg, #e8d8ff, #f0e8ff);
+  border: 1px solid #bb99dd;
+  padding: 6px 8px;
+  font-weight: bold;
+  color: #6633aa;
+  text-align: center;
+}
+
+.product-row td {
+  border: 1px solid #ddbbee;
+  padding: 7px 10px;
+  vertical-align: middle;
+}
+
+.product-row:nth-child(even) td { background: #fdf8ff; }
+.product-row:hover td { background: #ffe8f8; }
+
+/* 칩셋 셀 */
+.chip-cell {
+  text-align: center;
+  min-width: 80px;
+}
+
+.chip-name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+}
+
+.chip-desc {
+  font-weight: bold;
+  color: #444;
+}
+
+/* 칩셋 뱃지 */
+.chip-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.badge-sd {
+  background: linear-gradient(#3366ff, #1144dd);
+  color: #fff;
+  border: 1px solid #1144dd;
+}
+
+.badge-ex {
+  background: linear-gradient(#0099cc, #006699);
+  color: #fff;
+  border: 1px solid #006699;
+}
+
+.badge-hot {
+  background: #ff3300;
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 1px 4px;
+  display: inline-block;
+}
+
+/* 가격 셀 */
+.price-cell {
+  text-align: center;
+  font-weight: bold;
+  color: #cc3366;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.price-mo {
+  font-size: 10px;
+  color: #888;
+  font-weight: normal;
+}
+
+.hot-price { color: #ff2200 !important; font-size: 14px !important; }
+.exynos-price { color: #0077aa !important; }
+
+.product-row.hot td { background: #fff5f0; }
+.product-row.hot:hover td { background: #ffe0d8; }
+.product-row.exynos td { background: #f0f8ff; }
+.product-row.exynos:hover td { background: #ddeeff; }
+
+/* 구매 버튼 */
+.btn-buy {
+  background: linear-gradient(#ff88cc, #ff44aa);
+  color: #fff;
+  border: 1px solid #ff2288;
+  font-family: "굴림", Gulim, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 10px;
+  cursor: pointer;
+  text-shadow: 1px 1px 0 #cc0066;
+  white-space: nowrap;
+}
+
+.btn-buy:hover { background: linear-gradient(#ff44aa, #ff0077); }
+
+.btn-hot {
+  background: linear-gradient(#ff5500, #dd2200) !important;
+  border-color: #cc1100 !important;
+}
+.btn-hot:hover { background: linear-gradient(#ff3300, #bb0000) !important; }
+
+.btn-ex {
+  background: linear-gradient(#0099cc, #006699) !important;
+  border-color: #005588 !important;
+}
+.btn-ex:hover { background: linear-gradient(#0077aa, #004477) !important; }
+
+.table-note {
+  font-size: 10px;
+  color: #887799;
+  padding: 5px 10px 7px;
+  line-height: 1.8;
+}
+
+/* ============ 칩셋 비교 테이블 ============ */
+.chip-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.chip-thead th {
+  background: linear-gradient(90deg, #ddeeff, #eef4ff);
+  border: 1px solid #99bbdd;
+  padding: 5px 8px;
+  font-weight: bold;
+  color: #336699;
+  text-align: center;
+}
+
+.chip-row td {
+  border: 1px solid #ddccee;
+  padding: 6px 10px;
+  vertical-align: middle;
+}
+
+.chip-row:nth-child(even) td { background: #f8f5ff; }
+.chip-row:hover td { background: #ffe8f5; }
+.chip-exrow td { background: #f0f8ff !important; }
+.chip-exrow:hover td { background: #ddeeff !important; }
+.chip-hotrow td { background: #fff5f0 !important; font-weight: bold; }
+.chip-hotrow:hover td { background: #ffe8e0 !important; }
+
+.ct-chip { font-weight: bold; color: #333; white-space: nowrap; }
+.ct-maker { text-align: center; color: #555; white-space: nowrap; }
+.ct-feat { color: #666; font-size: 10px; }
+.ct-price { text-align: center; font-weight: bold; color: #cc3366; }
+
+/* ============ STEP 테이블 ============ */
+.step-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  padding: 8px;
+  font-size: 11px;
+}
+
+.step-num {
+  background: linear-gradient(180deg, #aa33cc, #7722aa);
+  color: #fff;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 6px 8px;
+  white-space: nowrap;
+  vertical-align: top;
+  text-shadow: 1px 1px 0 #550088;
+  border: 1px solid #9922bb;
+  width: 55px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.step-text {
+  border: 1px solid #ddbbee;
+  padding: 6px 12px;
+  background: #fdf8ff;
+  line-height: 1.9;
+  color: #444;
+  vertical-align: top;
+}
+
+/* 정보 행 */
+.info-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(90deg, #f0e8ff, #ffe8f5);
+  border: 1px solid #cc99dd;
+  padding: 4px 10px;
+  margin: 4px 0;
+}
+
+.info-label {
+  font-size: 10px;
+  font-weight: bold;
+  color: #7733aa;
+}
+
+.info-val {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 복사 버튼 */
+.btn-copy-sm {
+  background: linear-gradient(#9944cc, #7722aa);
+  color: #fff;
+  border: 1px solid #6611aa;
+  font-family: "굴림", Gulim, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.btn-copy-sm:hover { background: linear-gradient(#7722aa, #550088); }
+
+/* ============ FAQ ============ */
+.faq-item { border-bottom: 1px dashed #ddbbee; }
+
+.faq-q {
+  padding: 7px 10px;
+  font-size: 11px;
+  color: #7733aa;
+  font-weight: bold;
+  cursor: pointer;
+  background: #fdf8ff;
+  transition: background 0.1s;
+}
+
+.faq-q:hover { background: #ffe0f5; color: #cc3366; }
+
+.faq-a {
+  display: none;
+  padding: 7px 16px;
+  font-size: 11px;
+  color: #555;
+  background: #fffbf5;
+  line-height: 1.9;
+  border-top: 1px dashed #ffccaa;
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* ============ 문의 테이블 ============ */
+.contact-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  padding: 8px;
+  font-size: 11px;
+}
+
+.ct-label {
+  background: linear-gradient(90deg, #e8d8ff, #f0e8ff);
+  border: 1px solid #bb99dd;
+  font-weight: bold;
+  color: #6633aa;
+  padding: 6px 10px;
+  width: 110px;
+  white-space: nowrap;
+}
+
+.ct-val {
+  border: 1px solid #ddbbee;
+  background: #fdf8ff;
+  font-weight: bold;
+  color: #333;
+  padding: 6px 10px;
+}
+
+/* ============ 푸터 ============ */
+#footer {
+  background: linear-gradient(90deg, #cc44aa, #9933cc, #6644ff, #9933cc, #cc44aa);
+  border: 2px solid #9933cc;
+  border-top: none;
+  text-align: center;
+  padding: 9px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 0 #660088;
+  line-height: 1.8;
+}
+
+.foot-star {
+  color: #ffe04b;
+  font-size: 13px;
+  text-shadow: 0 0 5px #ffcc00;
+}
+
+/* ============ 모달 ============ */
+#modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-bg.active { display: flex; }
+
+#modal-box {
+  background: #fff;
+  border: 3px solid #cc66dd;
+  padding: 0 20px 18px;
+  width: 350px;
+  font-family: "굴림", Gulim, sans-serif;
+  font-size: 12px;
+  position: relative;
+  box-shadow: 4px 4px 0 #ddaaee, 0 0 20px rgba(180,0,180,0.2);
+}
+
+.modal-title {
+  background: linear-gradient(90deg, #cc44aa, #9933cc);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 12px;
+  margin: 0 -20px 14px;
+  text-shadow: 1px 1px 0 #880066;
+  letter-spacing: 1px;
+}
+
+#modal-chip-info {
+  font-size: 14px;
+  font-weight: bold;
+  color: #7733aa;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+#modal-price-info {
+  font-size: 18px;
+  font-weight: bold;
+  color: #cc0066;
+  text-align: center;
+  margin-bottom: 6px;
+  text-shadow: 1px 1px 0 #ffaacc;
+}
+
+.btn-modal-close {
+  display: block;
+  margin: 14px auto 0;
+  background: linear-gradient(#cc44aa, #aa2299);
+  color: #fff;
+  border: 1px solid #881177;
+  font-family: "굴림", Gulim, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px 22px;
+  cursor: pointer;
+}
+
+.btn-modal-close:hover { background: linear-gradient(#aa2299, #881177); }
+
+/* ============ 토스트 ============ */
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: linear-gradient(#7733aa, #551188);
+  color: #fff;
+  font-family: "굴림", Gulim, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 7px 22px;
+  border: 2px solid #cc66ff;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 9999;
+  pointer-events: none;
+  text-shadow: 1px 1px 0 #330066;
+  box-shadow: 0 2px 8px rgba(120,0,180,0.4);
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============ 반짝이 별 (JS 생성) ============ */
+.star-item {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.15; transform: scale(0.7) rotate(0deg); }
+  to   { opacity: 1;    transform: scale(1.3) rotate(15deg); }
+}
+
+/* 하트 아이템 */
+.heart-item {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  color: #ff66aa;
+  animation: floatUp 3s ease-in forwards;
+}
+
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.5); }
+}
+
+/* 사이드바 이미지 */
+.side-content img {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffaadd;
+  border-radius: 50%;
+  object-fit: cover;
+}
